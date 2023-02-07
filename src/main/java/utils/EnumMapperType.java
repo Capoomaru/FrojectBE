@@ -1,4 +1,4 @@
-package com.froject.frojectbe.dto.category;
+package utils;
 
 public interface EnumMapperType {
     String getValue();

@@ -1,4 +1,4 @@
-package com.froject.frojectbe.dto.category;
+package utils;
 
 import lombok.NoArgsConstructor;
 
@@ -13,8 +13,14 @@ import java.util.stream.Collectors;
 public class EnumMapperFactory {
     private Map<String, List<EnumMapperValue>> factory = new LinkedHashMap<>();
 
+    //for make custom name
     public void put(String key, Class<? extends EnumMapperType> e) {
         factory.put(key, toEnumValues(e));
+    }
+
+    //for make default name(class name)
+    public void put(Class<? extends EnumMapperType> e) {
+        factory.put(e.getSimpleName(), toEnumValues(e));
     }
 
     public List<EnumMapperValue> toEnumValues(Class<? extends EnumMapperType> e ) {
@@ -23,7 +29,17 @@ public class EnumMapperFactory {
                 .collect(Collectors.toList());
     }
 
-    public Map<String, List<EnumMapperValue>> get(List<String> keys) {
+    //get String type key
+    public List<EnumMapperValue> get(String key) {
+        return factory.get(key);
+    }
+
+    //get Class type key
+    public List<EnumMapperValue> get(Class<? extends EnumMapperType> e) {
+        return factory.get(e.getSimpleName());
+    }
+
+    public Map<String, List<EnumMapperValue>> getList(List<String> keys) {
         if(keys == null || keys.size() == 0) {
             return new LinkedHashMap<>();
         }

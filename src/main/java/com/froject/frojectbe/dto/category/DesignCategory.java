@@ -1,10 +1,12 @@
-package com.froject.frojectbe.dto;
+package com.froject.frojectbe.dto.category;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import utils.EnumMapperType;
 
-
+@Getter
 @RequiredArgsConstructor
-public enum DesignCategory {
+public enum DesignCategory implements EnumMapperType {
     UX_UI("UX·UI"),
     LOGO_BRANDING("로고·브랜딩"),
     PRINTOUT("인쇄물"),
@@ -14,4 +16,5 @@ public enum DesignCategory {
     VIDEO_3D("영상·3D");
 
     private final String value;
+
 }

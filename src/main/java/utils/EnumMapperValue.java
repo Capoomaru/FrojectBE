@@ -1,7 +1,4 @@
-package com.froject.frojectbe.dto.category;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+package utils;
 
 public class EnumMapperValue {
     private String value;
